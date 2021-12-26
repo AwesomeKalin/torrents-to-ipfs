@@ -45,12 +45,10 @@ jobs:
               echo "::set-output name=run_job::true"
             fi
           done < files.txt
-torrent:
-  - name: Start torrenting new torrents
-    id: torrent
-    if: needs.check.outputs.run_job == 'true'
-    needs: init
-    steps:
-      - name: Start
+      
+      - name: Start torrenting new torrents
+        id: torrent
+        if: needs.check.outputs.run_job == 'true'
         run: |
           echo "Test"
+
